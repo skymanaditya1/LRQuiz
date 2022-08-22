@@ -1,0 +1,40 @@
+<!--users/templates/users/register.html-->
+
+{% extends 'base.html' %}
+
+<!-- These tags represent the document structure over which sections of CSS can be applied -->
+{% block content %}
+  <h2 class="heading">Register</h2>
+  <form id="register-form" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% if field.help_text %}
+          <br><small style="color: grey">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+    {% for field in profile_form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% if field.help_text %}
+          <br><small style="color: grey">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+    
+    <button id='register-submit-btn' type="submit">Register</button>
+  </form>
+
+<br/>
+<a id="back-to-login" class="btn btn-danger goback" href="{% url 'login' %}">Back to login</a>
+{% endblock %}

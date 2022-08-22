@@ -1,0 +1,21 @@
+<!--users/templates/users/dashboard.html : this is the user dashboard-->
+
+{% extends 'base.html' %}
+
+{% block content %}
+Hello, {{ user.username|default:'Guest' }}!
+
+<!-- If user is authenticated (logged in), display the logout url and vice versa. If the user is not logged in, then user variable is set to AnonymousUser-->
+<div>
+    <p>Your username is {{ username }}</p>
+    {% if user.is_authenticated %}
+        <p>Your email is {{ user.email }}</p>
+        <p>Your age is {{ user.userprofile.age }}</p>
+        <a href="{% url 'logout' %}">Logout</a><br>
+        <a href="{% url 'password_change' %}">Change password</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+</div>
+
+{% endblock %}

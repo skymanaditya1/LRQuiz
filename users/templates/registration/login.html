@@ -1,0 +1,19 @@
+<!--users/templates/registration/login.html-->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="heading">Login</h2>
+
+<form class="login-form" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input id="register-submit-btn" type="submit" value="Login">
+</form>
+<br>
+
+<!-- This line uses reverse mapping to map back to the user dashboard -->
+<!-- <a class="login-options" href="{% url 'dashboard' %}">Back to dashboard</a><br> -->
+<a class="login-options" href="{% url 'password_reset' %}">Reset password</a>
+<a class="login-options" href="{% url 'register' %}">Register</a>
+{% endblock %}
