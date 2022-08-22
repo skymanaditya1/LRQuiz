@@ -89,13 +89,23 @@ WSGI_APPLICATION = 'lipreading_website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dci5p45f78co8p',
+        'HOST': 'ec2-34-199-68-114.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'ikprmojhbswwfb',
+        'PASSWORD': '11178f43b9fe9ab429f466969893c4bc530a91da40a30e074ca2255a49704e84'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
