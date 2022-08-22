@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-!vpm2gm0o7mr%83k9zcl9vj&e2_uv#*#r-^f1(x-&i769=dm#(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lipreadingiiith.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -134,6 +134,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 
 # This tells Django where the static files are being kept 
